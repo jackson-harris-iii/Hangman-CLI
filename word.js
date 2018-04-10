@@ -23,11 +23,11 @@ function Word(chosenWord) {
         let display = []
 
         this.items.forEach(element => {
-            let view = element.show
+            let view = element.show()
             console.log(view)
-            display.push(view)
+            // display.push(view)
         });
-        console.log(display)
+        console.log(display.join(''))
     }   
 
 }
