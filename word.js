@@ -32,9 +32,14 @@ function Word(chosenWord) {
 
 }
 
-var testWord = 'hello world'
+function test() {
+    console.log('shit works')
+}
 
-letter.test()
-var testWord = new Word(testWord)
-testWord.makeWord()
-testWord.show() 
+module.exports = { Word, test }
+// var testWord = 'hello world'
+
+// letter.test()
+// var testWord = new Word(testWord)
+// testWord.makeWord()
+// testWord.show() 

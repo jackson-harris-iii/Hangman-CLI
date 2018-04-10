@@ -6,10 +6,11 @@ let prompt = iq.createPromptModule();
 const choices = ["JAINA", "REXXAR", "THRALL", "MALFURION", "UTHER", "ANDUIN", "VALEERA", "GULDAN", "GARROSH"];
 
 function random () {
-    console.log(choices[Math.floor(Math.random()*choices.length)])
+    return choices[Math.floor(Math.random()*choices.length)]
 }
 
-random()
+var roundWord = ''
+var wordObject = null
 
 const welcome = [
     {
@@ -20,8 +21,17 @@ const welcome = [
     }
 ]
 
-prompt(welcome).then((res) => {
-    if (res == 'yes'){
+const makeGuess = [
+    {
+        type: 'input',
+        message: 'guess a letter.',
+        name: 'guess'
+    }
+]
+
+prompt(welcome).then(res => {
+    
+    if (res.choice == 'yes'){
         console.log("Let's Begin...")
         start()
     }
@@ -30,3 +40,21 @@ prompt(welcome).then((res) => {
         start()
     }
 })
+
+function start() {
+    roundWord = random()
+    wordObject = new makeWord.Word(roundWord)
+    wordObject.makeWord()
+    wordObject.show()
+    round()
+    
+}
+
+function round() {
+    prompt(makeGuess).then(res => {
+        let guess = res.guess
+        console.log(guess)
+    })
+}
+
+// makeWord.test()
