@@ -52,8 +52,14 @@ function start() {
 
 function round() {
     prompt(makeGuess).then(res => {
-        let guess = res.guess
+        let guess = res.guess.toUpperCase()
+        wordObject.items.forEach(element => {
+            element.check(guess)
+            
+        });
         console.log(guess)
+        wordObject.show()
+        
     })
 }
 

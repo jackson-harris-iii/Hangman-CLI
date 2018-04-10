@@ -1,17 +1,18 @@
-function Letter(letter, guessed) {
-    this.letter = letter,
-    this.guessed = false,
+function Letter(letter) {
+    this.letter = letter
+    this.guessed = false
 
     this.check = function (guess){
+
         if (guess == this.letter){
             this.guessed = true
-            this.show()
+            // console.log(this.letter)
+            // this.show()
         }
-        else console.log('incorrect guess try again')
     },
 
     this.show = function () {
-        if (guessed){
+        if (this.guessed){
             return this.letter
         }
         return '_'

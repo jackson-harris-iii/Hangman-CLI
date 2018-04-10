@@ -8,14 +8,14 @@ function Word(chosenWord) {
 
         var currentWord = this.chosenWord
         var theWord = currentWord.split('')
-        console.log(currentWord)
+        // console.log(currentWord)
 
         theWord.forEach(element => {
             let currentLetter = new letter.Letter(element)
             this.items.push(currentLetter)
         });
-        // console.log(this.items)
-        // console.log(this.chosenWord)
+        console.log(this.items)
+        console.log(this.chosenWord)
     }
 
     this.show = function () {
@@ -24,10 +24,9 @@ function Word(chosenWord) {
 
         this.items.forEach(element => {
             let view = element.show()
-            console.log(view)
-            // display.push(view)
+            display.push(view)
         });
-        console.log(display.join(''))
+        console.log(display.join(' '))
     }   
 
 }
@@ -37,9 +36,12 @@ function test() {
 }
 
 module.exports = { Word, test }
-// var testWord = 'hello world'
+var testWord = 'hello world'
 
 // letter.test()
-// var testWord = new Word(testWord)
-// testWord.makeWord()
-// testWord.show() 
+// var testWordC = new Word(testWord)
+// testWordC.makeWord()
+// testWordC.items.forEach(element => {
+//     element.check('o')
+// });
+// testWordC.show() 
