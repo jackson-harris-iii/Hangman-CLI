@@ -10,3 +10,23 @@ function random () {
 }
 
 random()
+
+const welcome = [
+    {
+        type: 'list',
+        message: 'Do you want to play a game?',
+        choices: ['yes', 'no'],
+        name: 'choice'
+    }
+]
+
+prompt(welcome).then((res) => {
+    if (res == 'yes'){
+        console.log("Let's Begin...")
+        start()
+    }
+    else {
+        console.log("you're playing...")
+        start()
+    }
+})
