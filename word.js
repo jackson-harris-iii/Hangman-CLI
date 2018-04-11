@@ -14,8 +14,8 @@ function Word(chosenWord) {
             let currentLetter = new letter.Letter(element)
             this.items.push(currentLetter)
         });
-        console.log(this.items)
-        console.log(this.chosenWord)
+        // console.log(this.items)
+        // console.log(this.chosenWord)
     }
 
     this.show = function () {
@@ -26,7 +26,7 @@ function Word(chosenWord) {
             let view = element.show()
             display.push(view)
         });
-        console.log(display.join(' '))
+        return display.join(' ')
     }   
 
 }

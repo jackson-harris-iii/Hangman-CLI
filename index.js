@@ -11,6 +11,7 @@ function random () {
 
 var roundWord = ''
 var wordObject = null
+var guessesRem = null
 
 const welcome = [
     {
@@ -26,6 +27,15 @@ const makeGuess = [
         type: 'input',
         message: 'guess a letter.',
         name: 'guess'
+    }
+]
+
+const again = [
+    {
+        type: 'list',
+        message: 'would you like to play again?',
+        choices: ['yes', 'no'],
+        name: 'choice'
     }
 ]
 
@@ -46,20 +56,54 @@ function start() {
     wordObject = new makeWord.Word(roundWord)
     wordObject.makeWord()
     wordObject.show()
+    guessesRem = roundWord.length + 3
     round()
     
 }
 
 function round() {
-    prompt(makeGuess).then(res => {
-        let guess = res.guess.toUpperCase()
-        wordObject.items.forEach(element => {
-            element.check(guess)
-            
-        });
-        console.log(guess)
-        wordObject.show()
+    let progress = wordObject.show()
+    let compare = progress.replace(/\s/g, '')
+    guessesRem--
+
+    if (compare == roundWord){
+        console.log()
+        console.log('hmm... well played.')
+        console.log()
+        playAgain()
+    }
+    else if(guessesRem > 0){
         
+        prompt(makeGuess).then(res => {
+            
+            let guess = res.guess.toUpperCase()
+            wordObject.items.forEach(element => {
+                element.check(guess)   
+            });
+
+            console.log('Guesses Remaining: ' + guessesRem)
+            console.log(wordObject.show())
+            console.log()
+            round()
+            
+        })
+    }
+    else {
+        console.log()
+        console.log("better luck next time")
+        console.log()
+        playAgain()
+    }    
+}
+
+function playAgain() {
+    prompt(again).then(res => {
+        if (res.choice == 'yes') {
+            start()
+        }
+        else {
+            console.log("bye")
+        }
     })
 }
 
