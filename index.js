@@ -62,6 +62,7 @@ function start() {
 }
 
 function round() {
+    
     let progress = wordObject.show()
     let compare = progress.replace(/\s/g, '')
     guessesRem--
@@ -106,5 +107,3 @@ function playAgain() {
         }
     })
 }
-
-// makeWord.test()

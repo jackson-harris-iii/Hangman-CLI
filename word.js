@@ -8,14 +8,11 @@ function Word(chosenWord) {
 
         var currentWord = this.chosenWord
         var theWord = currentWord.split('')
-        // console.log(currentWord)
 
         theWord.forEach(element => {
             let currentLetter = new letter.Letter(element)
             this.items.push(currentLetter)
         });
-        // console.log(this.items)
-        // console.log(this.chosenWord)
     }
 
     this.show = function () {
@@ -38,6 +35,7 @@ function test() {
 module.exports = { Word, test }
 var testWord = 'hello world'
 
+//testing letter.js functionality
 // letter.test()
 // var testWordC = new Word(testWord)
 // testWordC.makeWord()
